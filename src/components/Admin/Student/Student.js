@@ -1,32 +1,38 @@
 import React from 'react'
 import {thead ,Table , th ,td ,tr} from 'reactstrap';
+import UpdateModelStudent from '../../../common/model/studentModel/UpdateModel';
+import DeleteModelStudent from '../../../common/model/studentModel/DeleteModel';
 
 const Student = ({user}) => {
   return (
     <tr>
     <th scope="row">
-    ssssssssssssssss
+    
+    <img   src={user.image} alt="icon" height="100" width="100"/>
     </th>
     <td>
-     sssssssssssssss
+     <span>{user.firstname}</span><span>{user.lastname}</span>
     </td>
     <td>
-   sssssssssssss
+      {user.faculty}
     </td>
     <td>
-   sssssssssss
+   {user.email}
     </td>
     <td>
-   sssssssssssssss
+  {user.studentID}
     </td>
     <td>
-  sssssssssssssss
+       {user.contactnumber}
     </td>
     <td>
-       sssssssssss
+    <span style={{backgroundColor : user.status === 'pending' ? "yellow":user.status === 'Approved' ? "green":user.status === 'Rejected' ? "red" : " " , padding: "5px", borderRadius: "10px"}}>
+      {user.status}</span>
     </td>
     <td>
-       ssssssssssssssss
+    <div style={{display:"flex" }}>
+        <UpdateModelStudent user={user} /> <DeleteModelStudent user={user} />
+        </div>
     </td>
   </tr>
   )

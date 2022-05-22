@@ -45,25 +45,28 @@ const Registrations = () => {
         ID
       </th>
       <th>
-        First Name
+        Full Name
       </th>
       <th>
-        Last Name
+        Faculty
       </th>
       <th>
         Email
       </th>
       <th>
-        PhoneNumber
+        StaffID
       </th>
       <th>
-        Last Modified
+        Type
+      </th>
+      <th>
+        ContactNumber
       </th>
       <th>
         Status
       </th>
       <th>
-        ChangeStatus
+        Action
       </th>
     </tr>
   </thead>
@@ -84,30 +87,31 @@ const Registrations = () => {
        <> 
      <Table hover>
   <thead>
-    <tr>
+  <tr>
       <th>
         ID
       </th>
       <th>
-        First Name
+        Full Name
       </th>
       <th>
-        Last Name
+        Faculty
       </th>
       <th>
         Email
       </th>
       <th>
-        PhoneNumber
+        StudentID
       </th>
+     
       <th>
-        Last Modified
+        ContactNumber
       </th>
       <th>
         Status
       </th>
       <th>
-        ChangeStatus
+        Action
       </th>
     </tr>
   </thead>
