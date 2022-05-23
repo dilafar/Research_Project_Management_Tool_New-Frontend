@@ -7,3 +7,7 @@ export const DELETE_STAFF = 'DELETE_STAFF';
 export const DELETE_USER  =  'DELETE_USER';
 export const UPDATE_USER  =  'UPDATE_USER ';
 export const UPDATE_STAFF = 'UPDATE_STAFF';
+export const FETCH_ALL_PANEL = 'FETCH_ALL_PANEL';
+export const  UPDATE_PANEL = 'UPDATE_PANEL';
+export  const  DELETE_PANEL = 'DELETE_PANEL ';
+export const  CREATE_PANEL = 'CREATE_PANEL';
