@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from 'react-redux'
-//import {deleteUsers} from '../../actions/user'
+import {deleteUser} from '../../../actions/user'
 
 const style = {
   position: 'absolute',
@@ -26,7 +26,7 @@ const DeleteModelStudent = ({user}) => {
     const dispatch = useDispatch();
 
     const DeleteUser = () =>{
-      //dispatch(deleteUsers(user._id));
+      dispatch(deleteUser(user._id));
       handleClose();
     }
 
@@ -47,7 +47,7 @@ const DeleteModelStudent = ({user}) => {
           
         </div>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.Fadhil
+          Do You Need To Delete {user._id} ?
         </Typography>
         <Button  variant="contained"  color="error"   onClick={ DeleteUser}>
     OK

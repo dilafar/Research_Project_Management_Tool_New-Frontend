@@ -10,3 +10,5 @@ export const fetchStaff = (page) => axios.get(`${url}/user/staff?page=${page}`);
 export const fetchUser = (page) => axios.get(`${url}/user/student?page=${page}`);
 export const deleteStaff = (id) => axios.delete(`${url}/user/staff/${id}`);
 export const deleteUser = (id) => axios.delete(`${url}/user/student/${id}`);
+export const updateStaff = (id , formdata) => axios.put(`${url}/user/staff/${id}`, formdata);
+export const updateUser = (id , formdata) => axios.put(`${url}/user/student/${id}`, formdata);

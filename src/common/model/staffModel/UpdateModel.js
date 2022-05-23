@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import {useState,useEffect} from "react";
 import Typography from '@mui/material/Typography';
-//import {updateUsers} from '../../actions/user'
+import {updateStaff} from '../../../actions/user';
 import Modal from '@mui/material/Modal';
 import { Form,FormGroup , Label ,Input ,option,FormText, Card, CardBody } from 'reactstrap';
 import Button from '@mui/material/Button';
@@ -39,7 +39,7 @@ const UpdateModelStaff = ({staff}) => {
 const handleSubmit = (e) =>{
     e.preventDefault();
 
-    //dispatch(updateUsers(user._id ,{isFarmer}));
+    dispatch(updateStaff(staff._id ,{status}));
          
     console.log({status});
     clear();

@@ -1,4 +1,4 @@
-import {FETCH_ALL_STAFF , DELETE_STAFF } from '../constants/actionTypes';
+import {FETCH_ALL_STAFF , DELETE_STAFF ,UPDATE_STAFF } from '../constants/actionTypes';
 
 const staffReducer = (state = [] , action)=>{
     switch(action.type){
@@ -12,6 +12,8 @@ const staffReducer = (state = [] , action)=>{
 
         case DELETE_STAFF :
                 return state.filter((staff) => staff._id !== action.payload);
+        case UPDATE_STAFF   :
+                    return state.map((staff)=>(staff._id === action.payload._id ? action.payload : staff));
         default:
                 return state;
     }

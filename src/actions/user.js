@@ -1,4 +1,4 @@
-import {FETCH_ALL_USER , DELETE_USER ,FETCH_ALL_STAFF , DELETE_STAFF } from '../constants/actionTypes';
+import {FETCH_ALL_USER , DELETE_USER ,FETCH_ALL_STAFF , DELETE_STAFF ,UPDATE_STAFF,UPDATE_USER } from '../constants/actionTypes';
 import * as api from '../api/index';
 
 export const getAllStaff = (page) => async (dispatch) => {
@@ -40,3 +40,23 @@ export const getAllStaff = (page) => async (dispatch) => {
       console.log(error);
     }
   };
+
+  export const updateStaff = (id , staff) => async(dispatch)=>{
+    try {
+        const { data }  = await api.updateStaff(id , staff);
+        console.log(data);
+        dispatch({ type: UPDATE_STAFF , payload: data });
+      } catch (error) {
+        console.log(error);
+      }
+};
+
+export const updateUser = (id , user) => async(dispatch)=>{
+  try {
+      const { data }  = await api.updateUser(id , user);
+      console.log(data);
+      dispatch({ type: UPDATE_USER , payload: data });
+    } catch (error) {
+      console.log(error);
+    }
+};
