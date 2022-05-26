@@ -6,11 +6,18 @@ import Button from '@mui/material/Button';
 import {ButtonBase} from '@material-ui/core';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UpdateIcon from '@mui/icons-material/Update';
+import {Link, useNavigate} from  "react-router-dom";
 
 
 const Supervisor = ({ staff}) => {
+  const navigate = useNavigate();
+  const open =()=>{
+  
+    navigate(`/Student/view/${staff._id}`);
+
+}
   return (
-    <Card style={{maxWidth: '500px' ,maxHeight: '500px'}}>
+    <Card style={{maxWidth: '500px' ,maxHeight: '500px'}} onClick={open}>
       
     <CardImg
       alt="Card image cap"

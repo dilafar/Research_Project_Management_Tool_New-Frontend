@@ -1,4 +1,4 @@
-import {FETCH_ALL_USER , DELETE_USER ,FETCH_ALL_STAFF , DELETE_STAFF ,UPDATE_STAFF,UPDATE_USER } from '../constants/actionTypes';
+import {FETCH_ALL_USER , DELETE_USER ,FETCH_ALL_STAFF , DELETE_STAFF ,UPDATE_STAFF,UPDATE_USER ,GET_PANEL,FETCH_STAFF } from '../constants/actionTypes';
 import * as api from '../api/index';
 
 export const getAllStaff = (page) => async (dispatch) => {
@@ -10,6 +10,16 @@ export const getAllStaff = (page) => async (dispatch) => {
       console.log(error);
     }
   };
+
+  export const getpanelmembers = () =>async(dispatch)=>{
+    try {
+        const { data }  = await api.fetchUser2();
+        console.log(data);
+        dispatch({ type: GET_PANEL , payload: data });
+      } catch (error) {
+        console.log(error);
+      }
+}
 
   export const getAllUser = (page) => async (dispatch) => {
     try {
@@ -59,4 +69,27 @@ export const updateUser = (id , user) => async(dispatch)=>{
     } catch (error) {
       console.log(error);
     }
+};
+
+export const updatePanelMember = (id , staff) => async(dispatch)=>{
+  try {
+      const { data }  = await api.updatePanelMember(id , staff);
+      console.log(data);
+      dispatch({ type: UPDATE_STAFF , payload: data });
+    } catch (error) {
+      console.log(error);
+    }
+};
+
+export const getStaff = (id) => async (dispatch) => {
+  try {
+    
+
+    const { data } = await api.fetchSingleStaff(id);
+    console.log(data);
+    dispatch({ type: FETCH_STAFF, payload:{ staff: data } });
+
+  } catch (error) {
+    console.log(error);
+  }
 };

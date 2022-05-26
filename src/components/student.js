@@ -13,6 +13,7 @@ import QandA from './Student/QandA';
 import Notifications from './Student/Notifications';
 import Viva from './Student/Viva';
 import Research_Template from './Student/Research_Template';
+import SupervisorDetails from './Student/SupervisorDetails';
 
 const Student = () => {
   const [mode, setMode] = useState("light");
@@ -27,6 +28,7 @@ const Student = () => {
          <Grid item xs={10} style={{padding:"100px" }}>
            <Routes>
              <Route exact path='/' element={<Home/>}/>
+             <Route exact path='view/:id' element={<SupervisorDetails/>}/>
              <Route exact path='/supervisors' element={<Supervisors/>}/>
              <Route exact path='/studentgroups' element={<StudentGroup/>}/>
              <Route exact path='/submissions' element={<Submissions/>}/>

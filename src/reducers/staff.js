@@ -1,4 +1,4 @@
-import {FETCH_ALL_STAFF , DELETE_STAFF ,UPDATE_STAFF } from '../constants/actionTypes';
+import {FETCH_ALL_STAFF , DELETE_STAFF ,UPDATE_STAFF,GET_PANEL,FETCH_STAFF } from '../constants/actionTypes';
 
 const staffReducer = (state = [] , action)=>{
     switch(action.type){
@@ -9,6 +9,17 @@ const staffReducer = (state = [] , action)=>{
                         currentPage: action.payload.currentPage,
                         numberOfPages: action.payload.numberOfPages,
             };
+        case FETCH_STAFF :
+            return {
+                ...state,
+                staff: action.payload.staff,
+            };
+
+        case GET_PANEL : 
+                return {
+                    ...state,
+                    members : action.payload,
+                };
 
         case DELETE_STAFF :
                 return state.filter((staff) => staff._id !== action.payload);
