@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../common/homeNav/Footer';
 import HomeNavbar from '../common/homeNav/HomeNavbar';
 import Slider from '../common/homeNav/Slider';
 
@@ -10,6 +11,7 @@ export const Home = () => {
      <HomeNavbar/>
     </div>
     <Slider/>
+    <Footer/>
     </div>
   )
 }
