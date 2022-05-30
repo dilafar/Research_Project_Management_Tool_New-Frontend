@@ -1,6 +1,5 @@
 import React from 'react'
 import './new.css';
-import farm from '../components/images/Farming.png';
 
 const Footer = () => {
   return (
