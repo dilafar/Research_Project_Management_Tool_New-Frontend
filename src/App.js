@@ -6,7 +6,6 @@ import Student from "./components/student.js";
 import Supervisor from "./components/supervisor.js";
 import Panel_member from "./components/panel_member.js";
 import Home from "./components/home.js";
-import Home2 from "./components/Admin/home.js";
 
 
 function App() {

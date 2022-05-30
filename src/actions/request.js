@@ -1,4 +1,4 @@
-import {FETCH_ALL_REQUEST  ,CREATE_REQUEST } from '../constants/actionTypes';
+import {FETCH_ALL_REQUEST  ,CREATE_REQUEST , DELETE_REQUEST  } from '../constants/actionTypes';
 import * as api from '../api/index';
 
 export const createRequest =(request)=>async(dispatch)=>{
@@ -21,4 +21,14 @@ export const getAllRequestByID =()=>async(dispatch)=>{
     }catch(error){
         console.log(error);
     }
+}
+
+export const deleteRequest = (id) => async(dispatch)=>{
+    try {
+        const { data }  = await api.deleteRequest(id);
+        console.log(data);
+        dispatch({ type: DELETE_REQUEST , payload: id });
+      } catch (error) {
+        console.log(error);
+      }
 }

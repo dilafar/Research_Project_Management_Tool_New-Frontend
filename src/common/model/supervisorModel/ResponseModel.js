@@ -21,12 +21,12 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const ResponseModel = ({StaffId , StudentId}) => {
+const ResponseModel = ({StaffId , StudentId , Type ,ID }) => {
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-    //StaffId , StudentId  ,status, Message
+    //StaffId , StudentId  , ID , Type , status, Message
   const [Message, setMessage] = useState('');
   const [status , setStatus] = useState('');
 
@@ -35,7 +35,7 @@ const ResponseModel = ({StaffId , StudentId}) => {
 const handleSubmit = (e) =>{
     e.preventDefault();
 
-    dispatch(createResponse({StaffId , StudentId  ,status, Message}));
+    dispatch(createResponse({StaffId , StudentId  , ID , Type , status, Message}));
          
     clear();
     handleClose();

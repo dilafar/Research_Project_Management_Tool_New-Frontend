@@ -1,4 +1,4 @@
-import {FETCH_ALL_USER , DELETE_USER ,UPDATE_USER } from '../constants/actionTypes';
+import {FETCH_ALL_USER , DELETE_USER ,UPDATE_USER , FETCH_STUDENT } from '../constants/actionTypes';
 
 const userReducer = (state = [] , action)=>{
     switch(action.type){
@@ -9,7 +9,11 @@ const userReducer = (state = [] , action)=>{
                         currentPage: action.payload.currentPage,
                         numberOfPages: action.payload.numberOfPages,
             };
-
+        case FETCH_STUDENT :
+                return {
+                    ...state,
+                    student : action.payload.student,
+            };
         case DELETE_USER:
                 return state.filter((user) => user._id !== action.payload);
         case UPDATE_USER   :

@@ -13,9 +13,12 @@ import {
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { useNavigate , useLocation } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch ,useSelector } from 'react-redux';
 import decode from 'jwt-decode';
-import * as actionType from '../../constants/actionTypes'
+import * as actionType from '../../constants/actionTypes';
+import {getStudent} from '../../actions/user';
+import {Link , useNavigate} from 'react-router-dom';
+
 
 
 const StyledToolbar = styled(Toolbar)({
@@ -54,8 +57,12 @@ const StudentNavbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
   const location = useLocation();
+  const {student} = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   const logout = () => {
+   
+  
     dispatch({ type: actionType.LOGOUT });
 
     navigation("/");
@@ -65,15 +72,25 @@ const StudentNavbar = () => {
 
   useEffect(() => {
     const token = user?.token;
-
+    
     if (token) {
       const decodedToken = decode(token);
-
+      console.log(decodedToken.id);
+      dispatch(getStudent(decodedToken.id));
+      console.log(student);
       if (decodedToken.exp * 1000 < new Date().getTime()) logout();
     }
 
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
+
+  
+  const ProfileLink =()=>{
+  
+    navigate(`/Student/profile`);
+
+  }
+
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -119,8 +136,9 @@ const StudentNavbar = () => {
           horizontal: "right",
         }}
       >
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>My account</MenuItem>
+        
+        <MenuItem   >My account</MenuItem>
+        <MenuItem   onClick={ProfileLink}>Profile1</MenuItem>
         <MenuItem   onClick={logout}>Logout</MenuItem>
       </Menu>
     </AppBar>

@@ -14,6 +14,7 @@ import Notifications from './Student/Notifications';
 import Viva from './Student/Viva';
 import Research_Template from './Student/Research_Template';
 import SupervisorDetails from './Student/SupervisorDetails';
+import Profile from './Student/Profile';
 
 const Student = () => {
   const [mode, setMode] = useState("light");
@@ -29,6 +30,7 @@ const Student = () => {
            <Routes>
              <Route exact path='/' element={<Home/>}/>
              <Route exact path='view/:id' element={<SupervisorDetails/>}/>
+             <Route exact path='profile' element={<Profile/>}/>
              <Route exact path='/supervisors' element={<Supervisors/>}/>
              <Route exact path='/studentgroups' element={<StudentGroup/>}/>
              <Route exact path='/submissions' element={<Submissions/>}/>

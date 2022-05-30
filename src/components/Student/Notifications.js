@@ -7,6 +7,7 @@ import {useLocation} from 'react-router-dom';
 import {getAllResponseByID} from '../../actions/response';
 import Button from '@mui/material/Button';
 import './response.css';
+import DeleteModelResponse from '../../common/model/supervisorModel/DeleteResponseModel';
 
 const Notifications = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const Notifications = () => {
                 ) : (
                     <>
                      {responses.map((response) => (
-        <div className="cart-item d-md-flex justify-content-between" key={responses._id}><span className="remove-item"><i className="fa fa-times"></i></span>
+        <div className="cart-item d-md-flex justify-content-between" key={responses._id}><span className="remove-item"><DeleteModelResponse response={response}/></span>
         <div className="px-3 my-3">
            
            

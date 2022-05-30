@@ -77,12 +77,16 @@ const Auth = () => {
 
   return (
     
-          <div >
+          <div  style={{backgroundImage : `url(${sideimage})` , backgroundSize: 'cover' , paddingBottom : '400px'}}>
+            <div className="shadow p-3 mb-3 bg-white rounded">
          <HomeNavbar />
-     <Card style={{padding: "10px" ,margin: "50px"}}>
+         </div>
+         <div style={{marginRight: '540px', marginLeft: '540px',marginTop: '100px'}}>
+     <Card style={{paddingBottom: '100px'}}>
        <CardBody >
+       <h2 style={{ margin: "30px 0px 30px 520px" , }}>{isSignup ? "Register" : "Login"}</h2>
       
-         <Stack direction="row" spacing={3}>
+         <Stack direction="row" spacing={2} style={{marginLeft: '250px', marginBottom: '50px'}}>
          { isSignup  && (
        <>  
 
@@ -434,13 +438,12 @@ const Auth = () => {
                 { isSignup ? 'Already have an account? Sign in' : "Don't have an account? Sign Up" }
               </Button>
 </Form>
-<Box>
-<img   src={sideimage} alt="icon" height="1500" width="800"/>
-</Box>
+
 </Stack>
 </Box>
 </CardBody>
 </Card>
+</div>
     </div>
       
     

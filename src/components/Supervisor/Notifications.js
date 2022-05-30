@@ -8,6 +8,7 @@ import {getAllRequestByID} from '../../actions/request';
 import Button from '@mui/material/Button';
 import './requestStyle.css';
 import ResponseModel from '../../common/model/supervisorModel/ResponseModel';
+import DeleteModelRequest from '../../common/model/supervisorModel/DeleteRequestModel';
 
 
 
@@ -31,7 +32,7 @@ const Notifications = () => {
                 ) : (
                     <>
                      {requests.map((request) => (
-        <div className="cart-item d-md-flex justify-content-between" key={request._id}><span className="remove-item"><i className="fa fa-times"></i></span>
+        <div className="cart-item d-md-flex justify-content-between" key={request._id}><span className="remove-item"><DeleteModelRequest request={request}/></span>
         <div className="px-3 my-3">
            
                <div style={{display: 'flex'}}>
@@ -46,7 +47,7 @@ const Notifications = () => {
                 <div className="cart-item-product-info" style={{marginLeft: '600px'}}>
                 <h2 className="cart-item-product-title">eeeeeeeeee</h2>
                     <p>rrrrrrrr</p>
-                    <ResponseModel StaffId={request.StaffId}  StudentId = {request.StudentId}/>
+                    <ResponseModel StaffId={request.StaffId}  StudentId = {request.StudentId} Type ={request.Type} ID={request.ID}/>
                     </div>
                 </div>
             

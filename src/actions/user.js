@@ -1,4 +1,4 @@
-import {FETCH_ALL_USER , DELETE_USER ,FETCH_ALL_STAFF , DELETE_STAFF ,UPDATE_STAFF,UPDATE_USER ,GET_PANEL,FETCH_STAFF } from '../constants/actionTypes';
+import {FETCH_ALL_USER , DELETE_USER ,FETCH_ALL_STAFF , DELETE_STAFF ,UPDATE_STAFF,UPDATE_USER ,GET_PANEL,FETCH_STAFF,FETCH_STUDENT } from '../constants/actionTypes';
 import * as api from '../api/index';
 
 export const getAllStaff = (page) => async (dispatch) => {
@@ -88,6 +88,19 @@ export const getStaff = (id) => async (dispatch) => {
     const { data } = await api.fetchSingleStaff(id);
     console.log(data);
     dispatch({ type: FETCH_STAFF, payload:{ staff: data } });
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getStudent = (id) => async (dispatch) => {
+  try {
+    
+
+    const { data } = await api.fetchSingleStudent(id);
+    console.log(data);
+    dispatch({ type: FETCH_STUDENT, payload:{ student: data } });
 
   } catch (error) {
     console.log(error);

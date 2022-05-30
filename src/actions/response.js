@@ -1,4 +1,4 @@
-import {FETCH_ALL_RESPONSE  ,CREATE_RESPONSE } from '../constants/actionTypes';
+import {FETCH_ALL_RESPONSE  ,CREATE_RESPONSE , DELETE_RESPONSE } from '../constants/actionTypes';
 import * as api from '../api/index';
 
 export const createResponse =(response)=>async(dispatch)=>{
@@ -21,4 +21,14 @@ export const getAllResponseByID =()=>async(dispatch)=>{
     }catch(error){
         console.log(error);
     }
+}
+
+export const deleteResponse = (id) => async(dispatch)=>{
+    try {
+        const { data }  = await api.deleteResponse(id);
+        console.log(data);
+        dispatch({ type: DELETE_RESPONSE , payload: id });
+      } catch (error) {
+        console.log(error);
+      }
 }

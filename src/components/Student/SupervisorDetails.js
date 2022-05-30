@@ -110,7 +110,7 @@ const SupervisorDetails = () => {
           )}
          
          {staff  && (
-          <RequestModel StaffId = {id}/>
+          <RequestModel StaffId = {id}  Type = {staff.type}/>
           )}
         </InfoContainer>
       </Wrapper>

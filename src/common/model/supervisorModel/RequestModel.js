@@ -21,12 +21,12 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const RequestModel = ({StaffId}) => {
+const RequestModel = ({StaffId , Type}) => {
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-    //StaffId ,topic , discription,technology
+    //StaffId ,Type ,topic , discription,technology
   const [topic, settopic] = useState('');
   const [ discription ,setdiscription] = useState('');
   const [technology , settechnology] = useState('');
@@ -35,7 +35,7 @@ const RequestModel = ({StaffId}) => {
 const handleSubmit = (e) =>{
     e.preventDefault();
 
-    dispatch(createRequest({StaffId , topic , discription,technology}));
+    dispatch(createRequest({StaffId ,Type ,topic , discription,technology}));
          
     clear();
     handleClose();

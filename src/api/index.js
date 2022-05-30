@@ -19,6 +19,7 @@ export const deletePanel = (id) => axios.delete(`${url}/panel/${id}`);
 export const fetchUser2 = () => axios.get(`${url}/user`);
 export const updatePanelMember = (id , formdata) => axios.put(`${url}/user/panel/${id}`, formdata);
 export const fetchSingleStaff = (id) => axios.get(`${url}/user/${id}`);
+export const fetchSingleStudent = (id) => axios.get(`${url}/user/new/${id}`);
 export const createRequest = (formdata) => axios.post(`${url}/request/add`,  formdata ,{
     headers:{
       Authorization : `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
@@ -42,3 +43,6 @@ export const fetchResponseById = () => axios.get(`${url}/response/find` ,{
       Authorization : `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
     }
   });
+
+export const deleteRequest = (id) => axios.delete(`${url}/request/${id}`);
+export const deleteResponse = (id) => axios.delete(`${url}/response/${id}`);
