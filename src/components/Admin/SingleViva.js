@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import {thead ,Table , th ,td ,tr} from 'reactstrap';
 import { Form,FormGroup , Label ,Input ,option,FormText, Card, CardBody } from 'reactstrap';
-import Datetime from 'react-datetime';
-import TimePicker from 'react-time-picker';
+//var DatePicker = require("reactstrap-date-picker");
 
 const SingleViva = ({group ,count}) => {
-    const [value, onChange] = useState('10:00');
+    const [time, settime] = useState('');
+   
   return (
    
         <tr>
@@ -31,7 +31,45 @@ const SingleViva = ({group ,count}) => {
    
    
     <td>
-    <TimePicker onChange={onChange} value={value} />
+        
+    <FormGroup>
+    <Label for="exampleDatetime">
+      Date
+    </Label>
+    <Input
+      id="exampleDatetime"
+      name="datetime"
+      placeholder="datetime placeholder"
+      type="date"
+     
+    />
+  </FormGroup>
+  
+  <FormGroup>
+    <Label for="exampleDatetime">
+      Start Time
+    </Label>
+    <Input
+      id="exampleDatetime"
+      name="datetime"
+      placeholder="datetime placeholder"
+      type="time"
+     
+    />
+  </FormGroup>
+  <FormGroup>
+    <Label for="exampleDatetime">
+      End Time
+    </Label>
+    <Input
+      id="exampleDatetime"
+      name="datetime"
+      placeholder="datetime placeholder"
+      type="time"
+      
+    />
+  </FormGroup>
+  
     </td>
     <td>
     <FormGroup>
