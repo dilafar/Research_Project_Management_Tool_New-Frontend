@@ -71,6 +71,16 @@ export const updateUser = (id , user) => async(dispatch)=>{
     }
 };
 
+export const updateStudent2 = (id , user) => async(dispatch)=>{
+  try {
+      const { data }  = await api.updateStudent(id , user);
+      console.log(data);
+      dispatch({ type: UPDATE_USER , payload: data });
+    } catch (error) {
+      console.log(error);
+    }
+};
+
 export const updatePanelMember = (id , staff) => async(dispatch)=>{
   try {
       const { data }  = await api.updatePanelMember(id , staff);

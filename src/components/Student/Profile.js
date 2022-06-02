@@ -5,6 +5,7 @@ import decode from 'jwt-decode';
 import * as actionType from '../../constants/actionTypes';
 import {getStudent} from '../../actions/user';
 import {Link , useNavigate} from 'react-router-dom';
+import UpdateModelStudentProfile from "../../common/model/studentModel/UpdateProfile";
 
 const Profile = () => {
 
@@ -137,7 +138,7 @@ const Profile = () => {
                      
                       </div>
                     </div>
-           
+                    <UpdateModelStudentProfile  student ={student}/>
             </div>
           </div>
         </div>
@@ -147,13 +148,15 @@ const Profile = () => {
     </div>
 
   </div>
+  
 </div>
 </div>
     </div>
 
-
+    
 
     </div>
+    
     </div>
 
   )

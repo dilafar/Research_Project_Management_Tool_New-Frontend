@@ -2,8 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import {useState,useEffect} from "react";
 import Typography from '@mui/material/Typography';
-import {updateUser} from '../../../actions/user';
 import Modal from '@mui/material/Modal';
+import {updateStudent2} from '../../../actions/user'
 import { Form,FormGroup , Label ,Input ,option,FormText, Card, CardBody } from 'reactstrap';
 import Button from '@mui/material/Button';
 import UpdateIcon from '@mui/icons-material/Update';
@@ -14,7 +14,7 @@ import { Stack } from "@mui/material";
 
 const style = {
   position: 'absolute',
-  top: '40%',
+  top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '650px',
@@ -23,7 +23,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const UpdateModelStudentProfile = ({user}) => {
+const UpdateModelStudentProfile = ({student}) => {
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -41,24 +41,40 @@ const UpdateModelStudentProfile = ({user}) => {
 
 
   useEffect(()=>{
-    if({user}){
-        setStatus(user.status);
+    if({student}){
+       setfirstname(student.firstname);
+       setlastname(student.lastname);
+       setgender(student.gender);
+       setdob(student.dob);
+       setemail(student.email);
+       setaddress(student.address);
+       setcontactnumber(student.contactnumber);
+       setfaculty(student.faculty);
+       setimage(student.image);
        
     }
-},[user]);
+},[student]);
 
 const handleSubmit = (e) =>{
     e.preventDefault();
 
-    dispatch(updateUser(user._id ,{status}));
+     dispatch(updateStudent2(student._id ,{ firstname , lastname , gender ,  dob , email , address , contactnumber , faculty , image}));
          
-    console.log({status});
+  //  console.log({});
     clear();
     handleClose();
             
 };
 const clear =()=>{
-    setStatus('pending');
+  setfirstname("");
+  setlastname("");
+  setgender("");
+  setdob("");
+  setemail("");
+  setaddress("");
+  setcontactnumber(0);
+  setfaculty("");
+  setimage("");
     
   }
  
@@ -67,8 +83,8 @@ const clear =()=>{
   return (
 
           <div>
+      <Button color="success"  variant="contained" endIcon={<UpdateIcon/>} onClick={handleOpen}>Update</Button>
       
-      <UpdateIcon onClick={handleOpen}/>
       <Modal
         open={open}
         onClose={handleClose}
@@ -96,7 +112,7 @@ const clear =()=>{
       placeholder="with a placeholder"
       type="text"
       value={firstname}  onChange={(e)=> setfirstname(e.target.value)}
-      style={{width: "330px"}}
+      style={{width: "280px"}}
     />
   </FormGroup>
   <FormGroup>
@@ -109,7 +125,7 @@ const clear =()=>{
       placeholder="with a placeholder"
       type="text"
       value={lastname}  onChange={(e)=> setlastname(e.target.value)}
-      style={{width: "330px"}}
+      style={{width: "280px"}}
     />
   </FormGroup>
   </Stack>
@@ -169,6 +185,9 @@ const clear =()=>{
       type="select"
       onChange={(e)=> setfaculty(e.target.value)}
     >
+       <option value ={student.faculty}>
+        {student.faculty}
+      </option>
       <option value = "Computing">
         Computing
       </option>
@@ -221,7 +240,7 @@ const clear =()=>{
       placeholder="with a placeholder"
       type="email"
       value={email}  onChange={(e)=> setemail(e.target.value)}
-      style={{width : !isSignup ? "700px":" " }}
+      style={{width : "580px"}}
     />
   </FormGroup>
  
