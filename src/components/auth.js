@@ -199,6 +199,9 @@ const Auth = () => {
       type="select"
       onChange={(e)=> setfaculty(e.target.value)}
     >
+        <option value = "Computing">
+        Select Faculty
+      </option>
       <option value = "Computing">
         Computing
       </option>

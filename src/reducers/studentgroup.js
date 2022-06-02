@@ -1,4 +1,4 @@
-import { FETCH_ALL_GROUP , FETCH_GROUP_STUDENT , FETCH_GROUP_SUPERVISOR ,FETCH_GROUP_COSUPERVISOR , CREATE_GROUP , UPDATE_GROUP ,DELETE_GROUP} from '../constans/actionTypes';
+import { FETCH_ALL_GROUP , FETCH_GROUP_STUDENT , FETCH_GROUP_SUPERVISOR ,FETCH_GROUP_COSUPERVISOR , CREATE_GROUP , UPDATE_GROUP ,DELETE_GROUP} from '../constants/actionTypes';
 
 const studentGroupReducer = (state = {groups:[]} , action) => {
   switch (action.type) {

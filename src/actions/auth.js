@@ -13,6 +13,12 @@ export const signin = (formdata , navigate) => async(dispatch) =>{
                 console.log(data.result.type);
                 dispatch({type: AUTH, data});
                 navigate("/Supervisor");
+            }else if(data.result.type === "Co-Supervisor"){
+
+                console.log(data.result.type);
+                dispatch({type: AUTH, data});
+                navigate("/Supervisor");
+            
             }else if(data.result.type === "admin"){
                 console.log(data.result.type);
                 dispatch({type: AUTH, data});

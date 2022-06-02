@@ -133,7 +133,7 @@ const AdminSidebar = ({mode,setMode}) => {
             <ListItemIcon>
               <AccountBox />
             </ListItemIcon>
-            <ListItemText primary="Grading" />
+            <ListItemText primary="Shedule Viva" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
