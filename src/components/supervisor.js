@@ -9,6 +9,8 @@ import StudentGroup from './Supervisor/StudentGroup';
 import MarkingScheme from './Supervisor/MarkingScheme';
 import Submissions from './Supervisor/Submissions';
 import Notifications from './Supervisor/Notifications';
+import Profile2 from './Supervisor/Profile';
+
 
 const Supervisor = () => {
   const [mode, setMode] = useState("light");
@@ -24,6 +26,7 @@ const Supervisor = () => {
            <Routes>
              <Route exact path='/' element={<Home/>}/>
              <Route exact path='/studentgroups' element={<StudentGroup/>}/>
+             <Route exact path='/Profile' element={<Profile2/>}/>
              <Route exact path='/markingScheme' element={<MarkingScheme/>}/>
              <Route exact path='/submissions' element={<Submissions/>}/>
              <Route exact path='/notifications' element={<Notifications/>}/>

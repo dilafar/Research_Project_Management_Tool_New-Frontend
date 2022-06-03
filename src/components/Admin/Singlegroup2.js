@@ -1,7 +1,7 @@
 import React from 'react'
 import {thead ,Table , th ,td ,tr} from 'reactstrap';
 
-const Singlegroup = ({group ,count}) => {
+const Singlegroup2 = ({group ,count}) => {
   return (
    
         <tr>
@@ -23,7 +23,17 @@ const Singlegroup = ({group ,count}) => {
     <p>{group.student3id}</p>
     </div>
     </td>
+    <td>
+    <div>
+    <p>{group.Date} at {group.startTime}-{group.endTime}</p>
     
+    </div>
+    </td>
+    <td>
+    <div><p>{group.panel}</p>
+   
+    </div>
+    </td>
    
    
    
@@ -32,4 +42,4 @@ const Singlegroup = ({group ,count}) => {
   )
 }
 
-export default Singlegroup
+export default Singlegroup2

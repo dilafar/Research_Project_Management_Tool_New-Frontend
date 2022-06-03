@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {thead ,Table , th ,td ,tr} from 'reactstrap';
 import { Form,FormGroup , Label ,Input ,option,FormText, Card, CardBody } from 'reactstrap';
+import UpdateStudentGroupModel from '../../common/model/panelModel/UpdateStudentGroup';
 //var DatePicker = require("reactstrap-date-picker");
 
 const SingleViva = ({group ,count}) => {
@@ -30,82 +31,9 @@ const SingleViva = ({group ,count}) => {
     
    
    
-    <td>
-        
-    <FormGroup>
-    <Label for="exampleDatetime">
-      Date
-    </Label>
-    <Input
-      id="exampleDatetime"
-      name="datetime"
-      placeholder="datetime placeholder"
-      type="date"
-     
-    />
-  </FormGroup>
-  
-  <FormGroup>
-    <Label for="exampleDatetime">
-      Start Time
-    </Label>
-    <Input
-      id="exampleDatetime"
-      name="datetime"
-      placeholder="datetime placeholder"
-      type="time"
-     
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="exampleDatetime">
-      End Time
-    </Label>
-    <Input
-      id="exampleDatetime"
-      name="datetime"
-      placeholder="datetime placeholder"
-      type="time"
-      
-    />
-  </FormGroup>
-  
-    </td>
-    <td>
-    <FormGroup>
     
-    <Input
-      id="panel"
-      name="panel"
-      type="select"
-      onChange={(e)=> setpanel(e.target.value)}
-      
-    >
-        <option value = "Select panel">
-        Select panel
-      </option>
-      <option value = "panel 1">
-      panel 1
-      </option>
-      <option value = "panel 2">
-      panel 2
-      </option>
-      <option value = "panel 3">
-      panel 3
-      </option>
-      <option value = "panel 4">
-      panel 4
-      </option>
-      <option value = "panel 5">
-      panel 5
-      </option>
-
-      <option value = "panel 6">
-      panel 6
-      </option>
-      
-    </Input>
-  </FormGroup>
+    <td>
+      <UpdateStudentGroupModel group={group}/>
     </td>
   </tr>
  

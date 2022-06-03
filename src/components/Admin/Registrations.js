@@ -11,6 +11,7 @@ import Staff from './Staff/Staff';
 import Student from './Student/Student';
 
 
+
 function useQuery(){
   return new URLSearchParams(useLocation().search);
 }
@@ -34,8 +35,8 @@ const Registrations = () => {
   }
   return (
     <div>
-      <Button color="primary"  variant="contained" onClick={switchmode1} style={{marginLeft: "2px" , marginBottom: "10px"}}>Supervisor</Button>
-     <Button color="primary"  variant="contained"  onClick={switchmode2} style={{marginLeft: "20px" , marginBottom: "10px"}}>Co - Supervisor</Button>
+      <Button color="primary"  variant="contained" onClick={switchmode1} style={{marginLeft: "2px" , marginBottom: "10px"}}>Staff</Button>
+     <Button color="primary"  variant="contained"  onClick={switchmode2} style={{marginLeft: "20px" , marginBottom: "10px"}}>Student</Button>
      { all  && (
        <> 
      <Table hover>

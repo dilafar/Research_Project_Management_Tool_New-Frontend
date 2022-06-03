@@ -138,7 +138,7 @@ const StudentNavbar = () => {
       >
         
         <MenuItem   >My account</MenuItem>
-        <MenuItem   onClick={ProfileLink}>Profile1</MenuItem>
+        <MenuItem   onClick={ProfileLink}>Profile</MenuItem>
         <MenuItem   onClick={logout}>Logout</MenuItem>
       </Menu>
     </AppBar>

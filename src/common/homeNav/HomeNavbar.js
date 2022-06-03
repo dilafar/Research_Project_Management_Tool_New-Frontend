@@ -82,15 +82,21 @@ const MenuItem2 = styled.div`
 const HomeNavbar = () => {
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  const [state , setstate] = useState(false);
-  const [adminNav , setadminNav] = useState(false);
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
- 
+  const [cosuper , setcosuper] = useState(false);
+  const [pan , setpan] = useState(false);
+ const [sup , setsup] = useState(false);
+ const [state , setstate] = useState(false);
+  const [adminNav , setadminNav] = useState(false);
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
-
+    setadminNav(false);
+    setsup(false);
+    setcosuper(false);
+    setpan(false);
+    setstate(false);
     navigate("/");
 
     setUser(null);
@@ -115,15 +121,43 @@ const HomeNavbar = () => {
   useEffect(() => {
     const token = user?.result;
 
-   /* if (token) {
-      console.log(token.isFarmer);
-      if(token.isFarmer === "Approved"){
+    if (token) {
+      console.log(token);
+      if(token.status === "Approved"){
+        if(token.type === "admin"){
+          setadminNav(true);
+          setsup(false);
+          setcosuper(false);
+          setpan(false);
+          setstate(false);
+        }else if(token.type === "Suppervisor"){
+          setadminNav(false);
+          setsup(true);
+          setcosuper(false);
+          setpan(false);
+          setstate(false);
+        }else if(token.type === "Co-Supervisor"){
+          setadminNav(false);
+          setsup(false);
+          setcosuper(true);
+          setpan(false);
+          setstate(false);
+        }else if(token.type === "Panel-Member"){
+          setadminNav(false);
+          setsup(false);
+          setcosuper(false);
+          setpan(true);
+          setstate(false);
+        }else{
+          setadminNav(false);
+          setsup(false);
+          setcosuper(false);
+          setpan(false);
           setstate(true);
-      }else if(token.firstName === "admin"){
-           setadminNav(true);
+        }
       }
       
-    }*/
+    }
 
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
@@ -139,13 +173,13 @@ const HomeNavbar = () => {
           </SearchContainer>
         </Left>  
         <Center>
-          <Logo>EMA FARMHOUSE.</Logo>
+          <Logo>PMP Research Project Management.</Logo>
         </Center>
         <Right>
         <MenuItem2><Button  component={Link} to="/" variant="contained"> Home</Button></MenuItem2>
         {state && (
           <>
-        <MenuItem2><Button  component={Link} to="/seller"  variant="contained"> Go to Seller</Button></MenuItem2>
+        <MenuItem2><Button  component={Link} to="/Student"  variant="contained"> Go to Student</Button></MenuItem2>
         </>
         )}
          {adminNav && (
@@ -153,7 +187,25 @@ const HomeNavbar = () => {
         <MenuItem2><Button  component={Link} to="/admin"  variant="contained"> Go to Admin</Button></MenuItem2>
         </>
         )}
-        <MenuItem2><Button  component={Link} to="/product"  variant="contained"> View Products</Button></MenuItem2>
+
+      {pan && (
+          <>
+        <MenuItem2><Button  component={Link} to="/Panel"  variant="contained"> Go to Admin</Button></MenuItem2>
+        </>
+        )}
+
+      {cosuper && (
+          <>
+        <MenuItem2><Button  component={Link} to="/Supervisor"  variant="contained"> Go to Admin</Button></MenuItem2>
+        </>
+        )}
+
+        {sup && (
+          <>
+        <MenuItem2><Button  component={Link} to="/Supervisor"  variant="contained"> Go to Admin</Button></MenuItem2>
+        </>
+        )}  
+       
           { user ? (
           <MenuItem2><Button variant="contained"  onClick={logout}> LOGOUT </Button></MenuItem2>):(
             <MenuItem2><Button component={Link} to="/auth" variant="contained"> SIGN IN </Button></MenuItem2>)}

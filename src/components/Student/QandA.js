@@ -1,9 +1,12 @@
 import React from 'react'
 
+
 const QandA = () => {
   return (
-    <div>QandA</div>
-  )
+   <div>
+     Chat app
+   </div>
+  );
 }
 
 export default QandA;

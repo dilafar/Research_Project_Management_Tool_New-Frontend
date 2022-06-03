@@ -27,7 +27,7 @@ import {
       color: "white",
       paddingTop: theme.spacing(8),
       backgroundColor: theme.palette.primary.main,
-      position: "sticky",
+      
       top: 0,
       [theme.breakpoints.up("sm")]: {
         backgroundColor: "white",
@@ -61,6 +61,7 @@ import {
   const SupervisorSidebar = ({mode,setMode}) => {
     const classes = useStyles();
     return (
+      <div style={{position: "fixed" }}>
       <Container  className={classes.container}>
         <List>
           <ListItem disablePadding>
@@ -123,6 +124,7 @@ import {
           </ListItem>
         </List>
         </Container>
+        </div>
     )
   }
   export default SupervisorSidebar;

@@ -53,7 +53,7 @@ const clear =()=>{
           <div>
       
       
-      <Button color="primary"  variant="contained"  startIcon={<AddIcon />} onClick={handleOpen} >Add</Button>
+      <Button color="primary"  variant="contained"   onClick={handleOpen} >Add Response</Button>
       <Modal
         open={open}
         onClose={handleClose}

@@ -73,6 +73,12 @@ const SupervisorNavbar = () => {
 
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
+
+  const ProfileLink =()=>{
+  
+    navigation(`/Supervisor/Profile`);
+
+  }
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -118,8 +124,9 @@ const SupervisorNavbar = () => {
           horizontal: "right",
         }}
       >
-        <MenuItem>Profile</MenuItem>
+        
         <MenuItem>My account</MenuItem>
+        <MenuItem onClick={ProfileLink}>Profile</MenuItem>
         <MenuItem  onClick={logout}>Logout</MenuItem>
       </Menu>
     </AppBar>

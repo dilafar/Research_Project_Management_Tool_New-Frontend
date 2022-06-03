@@ -23,7 +23,7 @@ const ImgContainer = styled.div`
 
 const Image = styled.img`
   width: 90%;
-  height: 80vh;
+  height: 70vh;
   object-fit: cover;
  
 `;
@@ -35,7 +35,7 @@ const InfoContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-weight: 200;
+  font-weight: 100;
 `;
 
 const Desc = styled.p`
@@ -43,9 +43,9 @@ const Desc = styled.p`
 `;
 
 const Price = styled.span`
-  font-weight: 100;
+  font-weight: 70;
   
-  font-size: 40px;
+  font-size: 30px;
 `;
 
 
@@ -84,7 +84,13 @@ const SupervisorDetails = () => {
     <div>
       
         <Card style={{ margin: "40px"}}>
+        
         <Container>
+        <div className="modal-header bg-info text-white" >
+                    <h5 className="modal-title text-white">Supervisor Details</h5>
+                    
+                        
+                </div>
      
       <Wrapper>
         <ImgContainer>
@@ -96,17 +102,27 @@ const SupervisorDetails = () => {
         <InfoContainer>
         {staff  && (
          
-       
-          <Title>{staff.educationQualification}</Title>
+          <>
+          <Price className=" badge badge-secondary">EducationQualification : </Price><br/>
+          <Price>{staff.educationQualification}</Price><br/><br/>
+          </>
           )}
            {staff  && (
-          <Desc>
+             <>
+              <Price className=" badge badge-secondary">
+            ResearchSpeacializedArea : 
+          </Price><br/>
+          <Price>
             {staff.researchSpeacializedArea}
-          </Desc>
+          </Price>
+          </>
            )}
           <br/><br/>
           {staff  && (
+            <>
+             <Price className=" badge badge-secondary">Pastresearchexperiance : </Price><br/>
           <Price> {staff.pastresearchexperiance}</Price>
+          </>
           )}
          
          {staff  && (

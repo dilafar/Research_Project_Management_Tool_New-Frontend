@@ -12,7 +12,7 @@ const staffReducer = (state = [] , action)=>{
         case FETCH_STAFF :
             return {
                 ...state,
-                staff: action.payload.staff,
+                staff2: action.payload.staff,
             };
 
         case GET_PANEL : 

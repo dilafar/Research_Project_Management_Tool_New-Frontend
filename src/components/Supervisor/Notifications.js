@@ -23,8 +23,14 @@ const Notifications = () => {
         
   },[dispatch])
   return (
-    <div><div>Notifications {requests.length}</div>
-    <Card style={{ margin: "100px" , padding : "100px"}}>
+    <div>
+    <Card style={{boxShadow: '10px'}}>
+
+    <div className="modal-header bg-info text-white" style={{marginBottom: '100px'}}>
+                    <h5 className="modal-title text-white">Notifications</h5>
+                    
+                        
+                </div>
          {requests.length === 0 ? (
               <div className=" alert alert-info text-center mt-3">
               Your Notification is empty
@@ -37,17 +43,22 @@ const Notifications = () => {
            
                <div style={{display: 'flex'}}>
                 <div className="cart-item-product-info" >
-                    <h2 className="cart-item-product-title">eeeeeeeeee</h2>
-                    <p>rrrrrrrr</p>
-                    <h2 className="cart-item-product-title">eeeeeeeeee</h2>
-                    <p>rrrrrrrr</p>
-                    <h2 className="cart-item-product-title">eeeeeeeeee</h2>
-                    <p>rrrrrrrr</p>
+                    <h2 className="cart-item-product-title">Topic</h2>
+                    <p>{request.topic}</p>
+                    <h2 className="cart-item-product-title">Technologies</h2>
+                    <p>{request.technology}</p>
+                    <h2 className="cart-item-product-title">Description</h2>
+                    <p>{request.discription}</p>
                 </div>
                 <div className="cart-item-product-info" style={{marginLeft: '600px'}}>
-                <h2 className="cart-item-product-title">eeeeeeeeee</h2>
-                    <p>rrrrrrrr</p>
+                <h2 className="cart-item-product-title">Date</h2>
+                    <p>{request.updatedAt}</p>
                     <ResponseModel StaffId={request.StaffId}  StudentId = {request.StudentId} Type ={request.Type} ID={request.ID}/>
+                    <br/>
+                    <h2 className="cart-item-product-title">Requested Student ID :</h2>
+                    <p>{request.ID}</p>
+                    <h2 className="cart-item-product-title">Requested Student Email :</h2>
+                    <p>{request.StudentId}</p>
                     </div>
                 </div>
             

@@ -19,8 +19,14 @@ const Notifications = () => {
         
   },[dispatch])
   return (
-    <div><div>Notifications {responses.length}</div>
-    <Card style={{ margin: "100px" , padding : "100px"}}>
+    <div>
+    <Card style={{boxShadow: '10px'}}>
+    <div className="modal-header bg-info text-white" style={{marginBottom: '100px'}}>
+                    <h5 className="modal-title text-white">Notifications</h5>
+                    
+                        
+                </div>
+                
          {responses.length === 0 ? (
               <div className=" alert alert-info text-center mt-3">
               Your Notification is empty
@@ -33,10 +39,10 @@ const Notifications = () => {
            
            
                 <div className="cart-item-product-info" >
-                    <h2 className="cart-item-product-title">eeeeeeeeee</h2>
-                    <p>rrrrrrrr</p>
-                    <h2 className="cart-item-product-title">eeeeeeeeee</h2>
-                    <p>rrrrrrrr</p>
+                    <h2 className="cart-item-product-title">Message</h2>
+                    <p>{response.Message}</p>
+                    <h2 className="cart-item-product-title ">Status</h2>
+                    <p className=" badge badge-secondary">{response.status}</p>
                     
                 </div>
                

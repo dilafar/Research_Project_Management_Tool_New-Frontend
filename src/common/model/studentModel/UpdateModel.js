@@ -47,7 +47,7 @@ const handleSubmit = (e) =>{
             
 };
 const clear =()=>{
-    setStatus('pending');
+    setStatus('');
     
   }
  

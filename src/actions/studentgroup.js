@@ -63,3 +63,13 @@ export const getallgroups = () =>async(dispatch)=>{
         console.log(error);
       }
 }
+
+export const updateStudentGroup = (id , panel) => async(dispatch)=>{
+    try {
+        const { data }  = await api.updateStudentGroup(id , panel);
+        console.log(data);
+        dispatch({ type: UPDATE_GROUP , payload: data });
+      } catch (error) {
+        console.log(error);
+      }
+};

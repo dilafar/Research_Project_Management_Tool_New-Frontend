@@ -53,7 +53,7 @@ const clear =()=>{
           <div>
       
       
-      <Button color="primary"  variant="contained"  startIcon={<AddIcon />} onClick={handleOpen} style={{marginTop: "100px", padding: " 20px"}}>Add</Button>
+      <Button color="primary"  variant="contained"   onClick={handleOpen} style={{marginTop: "100px", padding: " 20px"}}>Request</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -64,7 +64,7 @@ const clear =()=>{
         <Box sx={style}>
         <Form   onSubmit={handleSubmit}>
         <div className="modal-header bg-info text-white">
-                    <h5 className="modal-title text-white">Update User</h5>
+                    <h5 className="modal-title text-white">Request Supervisor</h5>
                     
                         
                 </div>
