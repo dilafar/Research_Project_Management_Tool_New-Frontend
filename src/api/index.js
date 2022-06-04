@@ -1,7 +1,7 @@
 import axios   from 'axios';
 
-const url = 'http://localhost:5000';
-
+//const url = 'http://localhost:5000';
+const url = 'https://project-management-tool-app.herokuapp.com';
 
 export const signIn = (formdata) => axios.post(`${url}/user/signin`,  formdata);
 export const signUp = (formdata) => axios.post(`${url}/user/signup`,  formdata);

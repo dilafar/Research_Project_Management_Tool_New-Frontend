@@ -72,7 +72,7 @@ const SupervisorDetails = () => {
   const dispatch = useDispatch();
   
   const {id} = useParams();
-  const { staff} = useSelector((state) => state.staff);
+  const { staff2} = useSelector((state) => state.staff);
 
   useEffect(()=>{
             dispatch(getStaff(id));
@@ -94,39 +94,39 @@ const SupervisorDetails = () => {
      
       <Wrapper>
         <ImgContainer>
-        {staff  && (
-          <Image src={staff.image} />
+        {staff2  && (
+          <Image src={staff2.image} />
         )}
           
         </ImgContainer>
         <InfoContainer>
-        {staff  && (
+        {staff2  && (
          
           <>
           <Price className=" badge badge-secondary">EducationQualification : </Price><br/>
-          <Price>{staff.educationQualification}</Price><br/><br/>
+          <Price>{staff2.educationQualification}</Price><br/><br/>
           </>
           )}
-           {staff  && (
+           {staff2  && (
              <>
               <Price className=" badge badge-secondary">
             ResearchSpeacializedArea : 
           </Price><br/>
           <Price>
-            {staff.researchSpeacializedArea}
+            {staff2.researchSpeacializedArea}
           </Price>
           </>
            )}
           <br/><br/>
-          {staff  && (
+          {staff2  && (
             <>
              <Price className=" badge badge-secondary">Pastresearchexperiance : </Price><br/>
-          <Price> {staff.pastresearchexperiance}</Price>
+          <Price> {staff2.pastresearchexperiance}</Price>
           </>
           )}
          
-         {staff  && (
-          <RequestModel StaffId = {id}  Type = {staff.type}/>
+         {staff2 && (
+          <RequestModel StaffId = {id}  Type = {staff2.type}/>
           )}
         </InfoContainer>
       </Wrapper>

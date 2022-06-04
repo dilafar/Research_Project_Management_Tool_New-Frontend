@@ -6,6 +6,7 @@ import { useNavigate ,  useLocation} from "react-router-dom";
 import SendIcon from '@mui/icons-material/Send';
 import decode from 'jwt-decode';
 import {getgroupByIDStudent} from '../../actions/studentgroup';
+import {thead ,Table } from 'reactstrap';
 
 import FileBase from 'react-file-base64';
 import { Form,FormGroup , Label ,Input ,option,FormText, Card, CardBody } from 'reactstrap';
@@ -91,7 +92,7 @@ const StudentGroup = () => {
     setmember3('');
     
   }
- 
+ console.log(studentGroup);
 
   return (
     
@@ -260,7 +261,59 @@ const StudentGroup = () => {
 <br/>
   
 </Form>
-
+<diV>
+<Table hover id="quiz">
+  <thead>
+    <tr>
+      <th>
+        Supervisor
+      </th>
+      <th>
+        Co - Supervisor
+      </th>
+      <th>
+        Students
+      </th>
+      <th>
+     Action
+      </th>
+      
+     
+    
+    </tr>
+  </thead>
+  <tbody>
+{studentGroup?.map((group)=>(
+    <tr>
+    <th scope="row">
+    
+    <p>{group.Supervisor}</p>
+    </th>
+    <td><p>{group.CoSupervisor}</p></td>
+    <td>
+    <div><p>{group.leader}</p>
+    <p>{group.student1}</p>
+    <p>{group.student2}</p>
+    <p>{group.student3}</p>
+   
+    </div>
+    </td>
+    <td>
+    <div>
+    <p>{group.updatedAt}</p>
+    </div>
+    </td>
+    
+   
+   
+   
+  </tr>
+ 
+))}
+    
+  </tbody>
+</Table>
+</diV>
 
 
     </div>
