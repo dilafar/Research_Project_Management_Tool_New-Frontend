@@ -6,9 +6,11 @@ export const createRequest =(request)=>async(dispatch)=>{
         const {data} = await api.createRequest(request);
         console.log(data);
         dispatch({type: CREATE_REQUEST , payload: data});
+        alert("Request Successfully Send");
 
     }catch(error){
         console.log(error);
+        alert("Request Failed");
     }
 }
 
@@ -28,6 +30,7 @@ export const deleteRequest = (id) => async(dispatch)=>{
         const { data }  = await api.deleteRequest(id);
         console.log(data);
         dispatch({ type: DELETE_REQUEST , payload: id });
+        alert("Request Deleted Successfull");
       } catch (error) {
         console.log(error);
       }

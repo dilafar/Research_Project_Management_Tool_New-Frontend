@@ -40,6 +40,7 @@ export const signin = (formdata , navigate) => async(dispatch) =>{
             if(data.result.status === "Approved"){
                      console.log(data);
                      dispatch({type: AUTH, data});
+                     alert("Login Successfull");
                      navigate("/Student");
             }else{
                 alert("Login unSuccessfull"); 

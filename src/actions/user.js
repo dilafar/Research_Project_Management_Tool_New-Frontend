@@ -56,6 +56,7 @@ export const getAllStaff = (page) => async (dispatch) => {
         const { data }  = await api.updateStaff(id , staff);
         console.log(data);
         dispatch({ type: UPDATE_STAFF , payload: data });
+        alert("Staff Status Updated Successfully");
       } catch (error) {
         console.log(error);
       }
@@ -66,6 +67,7 @@ export const updateUser = (id , user) => async(dispatch)=>{
       const { data }  = await api.updateUser(id , user);
       console.log(data);
       dispatch({ type: UPDATE_USER , payload: data });
+      alert("Student Status Updated Successfully");
     } catch (error) {
       console.log(error);
     }

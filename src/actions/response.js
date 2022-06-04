@@ -6,6 +6,7 @@ export const createResponse =(response)=>async(dispatch)=>{
         const {data} = await api.createResponse(response);
         console.log(data);
         dispatch({type: CREATE_RESPONSE, payload: data});
+        alert("Response Created Successfully");
 
     }catch(error){
         console.log(error);
@@ -28,6 +29,7 @@ export const deleteResponse = (id) => async(dispatch)=>{
         const { data }  = await api.deleteResponse(id);
         console.log(data);
         dispatch({ type: DELETE_RESPONSE , payload: id });
+        alert("Response Deleted Successfully");
       } catch (error) {
         console.log(error);
       }
