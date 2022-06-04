@@ -5,6 +5,8 @@ import Admin from './components/admin.js';
 import Student from "./components/student.js";
 import Supervisor from "./components/supervisor.js";
 import Panel_member from "./components/panel_member.js";
+
+
 import Home from "./components/home.js";
 
 
@@ -23,6 +25,9 @@ function App() {
          <Route exact path="/Student/*" element={<Student/>}/>
         <Route exact path="/Supervisor/*" element={<Supervisor/>}/>
         <Route exact path="/Panel/*" element={<Panel_member/>}/>
+      
+        
+       
 
       </Routes>
       </BrowserRouter>

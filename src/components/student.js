@@ -7,7 +7,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from './Student/Home';
 import Supervisors from './Student/Supervisors';
 import StudentGroup from './Student/StudentGroup';
-import Submissions from './Student/Submissions';
+import Submissions from '../components/Admin/Student/Submissions';
 import Assignments from './Student/Assignments';
 import QandA from './Student/QandA';
 import Notifications from './Student/Notifications';

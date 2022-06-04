@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, Input } from "antd";
+import "antd/dist/antd.css";
 
 import { storage } from "./StudentSubFirebase";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import subStyle from "../../../css/viewSubmission.module.css";
 
 import Swal from "sweetalert2";
-
+import { Container } from "@mui/material";
 import axios from "axios";
 
 export default function Submissions() {
+  const [submissions, setsubmissions] = useState([]);
   const [upload, setUpload] = useState(null);
   const [loading, setLoading] = useState(true);
   const [form] = Form.useForm();
@@ -18,26 +21,7 @@ export default function Submissions() {
  
 
 
-  //fetch uploaded submission
-  // const fetchSubmissions = async (value) => {
-  //   console.log(value);
-  //   setLoading(true);
-  //   try {
-  //     const result = await axios.get(
-  //       `http://localhost:5000/mysubmission/${value}`
-  //     );
-  //     if (result.status === 200) {
-  //       setSubmissionList(result.data);
-  //     }
 
-  //     console.log(" Submission get", result.data);
-  //     setLoading(false);
-  //   } catch (e) {
-  //     setLoading(false);
-  //   }
-  // };
-
-  //Uploading a file to firebase
   const uploadFile = (file) => {
     if (!file) return;
 
@@ -103,6 +87,23 @@ export default function Submissions() {
     wrapperCol: { offset: 8, span: 8 },
   };
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/studentsubmission/temdetails")
+      .then((res) => {
+        setsubmissions(res.data);
+      })
+      .catch((err) => {
+        alert("Something went wrong :(");
+        console.log(err);
+      });
+
+    return () => {
+      // cleanup
+    };
+  }, []);
+
+
   return (
     <div>
      
@@ -110,7 +111,7 @@ export default function Submissions() {
       <div >
         <center>
           <br />
-          <h1>Submissions</h1>
+          <h1>Template Upload</h1>
           <br />
 
           <form onSubmit={formHandler}>
@@ -157,7 +158,29 @@ export default function Submissions() {
               ]}
             >
               <Input />
+
+
+              
             </Form.Item>
+
+            <Form.Item
+              name="Studentid"
+              label="Student Id"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+
+
+              
+            </Form.Item>
+
+            
+
+            
             
 
             <Form.Item {...tailLayout}>
@@ -173,7 +196,32 @@ export default function Submissions() {
           <br />
           <br />
         </center>
+
+        <Container>
+      <table width="100%" border="1px" className={subStyle.tbldata}>
+        <tr>
+          <th className={subStyle.tbldata}>Subject</th>
+          <th className={subStyle.tbldata}>URL</th>
+          <th className={subStyle.tbldata}>DEADLINE</th>
+         
+        </tr>
+        {submissions.map((submission) => (
+          <tr className={subStyle.tbldata}>
+            <td className={subStyle.tbldata}>{submission.subject}</td>
+            <td className={subStyle.tbldata}><a href = {submission.submitURL}>
+{submission.submitURL}
+</a>
+</td>
+<td className={subStyle.tbldata}>{submission.deadline}</td>
+           
+            
+          </tr>
+        ))}
+        
+      </table>
+      </Container>
       </div>
+     
       <br />
       <br />
       <br />
