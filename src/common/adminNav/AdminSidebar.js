@@ -105,7 +105,7 @@ const AdminSidebar = ({mode,setMode}) => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton  component={Link} to="/admin/submissions">
+          <ListItemButton  component={Link} to="/admin/Submissions">
             <ListItemIcon>
               <Settings />
             </ListItemIcon>
@@ -117,7 +117,7 @@ const AdminSidebar = ({mode,setMode}) => {
             <ListItemIcon>
               <Settings />
             </ListItemIcon>
-            <ListItemText primary="Research Template" />
+            <ListItemText primary="Marking Schemes" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>

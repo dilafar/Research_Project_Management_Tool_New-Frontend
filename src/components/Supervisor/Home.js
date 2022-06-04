@@ -1,10 +1,58 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './homeStyle.css';
 import backgroundImage from '../../images/homeimg.jpg' ;
 import announcement from '../../images/announcement.png';
 import notice from '../../images/notice34.png';
 
-const Home = () => {
+class Home extends Component {
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            name: '',
+            email: '',
+            comment: '',
+        
+        }
+        this.changeNameHandler = this.changeNameHandler.bind(this);
+        this.changeEmailHandler = this.changeEmailHandler.bind(this);
+        this.changeCommentHandler = this.changeCommentHandler.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    changeNameHandler= (event) => {
+        this.setState({name: event.target.value});
+    }
+
+    changeEmailHandler= (event) => {
+         this.setState({email: event.target.value});
+    }
+
+    changeCommentHandler= (event) => {
+        this.setState({comment: event.target.value});
+    }
+
+    onSubmit=(e)=>{
+        e.preventDefault();
+
+        const contact = {
+            name: this.state.name,
+            email: this.state.email,
+            comment: this.state.comment,
+        }
+
+        console.log(contact);
+
+        axios.post('http://localhost:5000/contact/add', contact)
+            .then(res => console.log(res.data));
+
+        alert("Your Comment Added!"); 
+    }
+
+
+render(){
   return (
     <div>
       
@@ -84,8 +132,61 @@ const Home = () => {
          </div>
 
 
+
+
+
+<div className='background'>
+               
+               <br/><br/><br/><br/>
+            
+                <form className='container' id='expForm' onSubmit={this.onSubmit}>
+                <h3>Contact Us</h3>
+                    <div className="form-group">
+                        <label>Name: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state._id}
+                            onChange={this.changeNameHandler}
+                        />
+                    </div>
+                  
+                    <div className="form-group">
+                        <label>Email </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.type}
+                            onChange={this.changeEmailHandler}
+                        />
+                    </div>
+                
+                    <div className="form-group">
+                        <label>Comment </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.department}
+                            onChange={this.changeCommentHandler}
+                        />
+                    </div>
+                
+                    
+                    
+                 <br/>
+                    <div className="form-group">
+                        <input type="submit" value="Send"  className="btn btn-primary"/>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
     </div>
   )
+}
 }
 
 export default Home;

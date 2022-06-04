@@ -101,7 +101,7 @@ import {
               <ListItemIcon>
                 <Person />
               </ListItemIcon>
-              <ListItemText primary="Research Template" />
+              <ListItemText primary="Marking Scheme" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>

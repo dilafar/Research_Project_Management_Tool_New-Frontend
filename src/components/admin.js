@@ -14,7 +14,8 @@ import StudentGroups from './Admin/StudentGroups';
 import Submissions from './Admin/Submissions';
 import Enquiry from './Admin/Enquiry';
 import Grading from './Admin/Grading';
-import Research_template from './Admin/research_template';
+import Marking_Schemes from './Admin/Marking_Schemes';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -45,7 +46,7 @@ const Admin = () => {
              <Route exact path='/Registrations' element={<Registrations/>}/>
              <Route exact path='/StudentGroups' element={<StudentGroups/>}/>
              <Route exact path='/submissions' element={<Submissions/>}/>
-             <Route exact path='/research' element={<Research_template/>}/>
+             <Route exact path='/research' element={<Marking_Schemes/>}/>
              <Route exact path='/enquiry' element={<Enquiry/>}/>
              <Route exact path='/grading' element={<Grading/>}/>
            </Routes>
