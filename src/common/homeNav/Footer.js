@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <div>
   <footer className="footer_area section_padding_130_0">
-      <div className="container">
-        <div className="row">
+      <div className="container" style={{width: '3000px' ,padding: '100px'}} >
+        <div className="row"  >
         
           <div className="col-12 col-sm-6 col-lg-4">
             <div className="single-footer-widget section_padding_0_130">

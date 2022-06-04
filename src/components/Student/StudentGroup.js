@@ -1,9 +1,11 @@
 import React ,{useState,useEffect} from "react";
 import {useDispatch} from 'react-redux'
+import { useSelector } from 'react-redux';
 import {createstudentgroup} from '../../actions/studentgroup';
 import { useNavigate ,  useLocation} from "react-router-dom";
 import SendIcon from '@mui/icons-material/Send';
 import decode from 'jwt-decode';
+import {getgroupByIDStudent} from '../../actions/studentgroup';
 
 import FileBase from 'react-file-base64';
 import { Form,FormGroup , Label ,Input ,option,FormText, Card, CardBody } from 'reactstrap';
@@ -35,6 +37,8 @@ const StudentGroup = () => {
   const [sup , setsup] = useState(false);
   const [cosup , setcosup] = useState(false);
   const [status , setstatus] = useState(true);
+ 
+  const {studentGroup} = useSelector((state) => state.sgroup);
   //leader,leaderid,student1,student1id , student2, student2id , student3, student3id, Supervisor , CoSupervisor, userId ,
   useEffect(() => {
     const token = user?.result;
@@ -59,6 +63,16 @@ const StudentGroup = () => {
 
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
+
+
+ 
+
+  useEffect(()=>{
+        dispatch(getgroupByIDStudent());
+        console.log(studentGroup);
+        
+  },[dispatch])
+  console.log(studentGroup);
  
 
   const handleSubmit = (e) =>{

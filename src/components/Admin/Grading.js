@@ -42,9 +42,9 @@ const Grading = () => {
 
   return (
     <div>
- <Button color="primary"  variant="contained" onClick={printReport} style={{marginLeft: "2px" , marginBottom: "10px"}}>Supervisor</Button>
- <Button color="primary"  variant="contained" onClick={switchmode1} style={{marginLeft: "2px" , marginBottom: "10px"}}>viva</Button>
-     <Button color="primary"  variant="contained"  onClick={switchmode2} style={{marginLeft: "20px" , marginBottom: "10px"}}>viva2</Button>
+ <Button color="primary"  variant="contained" onClick={printReport} style={{marginLeft: "2px" , marginBottom: "10px"}}>Print Excel</Button>
+ <Button color="primary"  variant="contained" onClick={switchmode1} style={{marginLeft: "2px" , marginBottom: "10px"}}>Create Shedule</Button>
+     <Button color="primary"  variant="contained"  onClick={switchmode2} style={{marginLeft: "20px" , marginBottom: "10px"}}>viva Shedule</Button>
 
      { all  && (
        <> 

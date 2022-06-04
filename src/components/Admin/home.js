@@ -7,7 +7,7 @@ import LineChart from './LineChart';
  const Home2 = () => {
   return (
     <div >
-        <div className="container">
+        <div className="container" style={{width: '1500px'}}>
     <div className="row">
         <div className="col-lg-3 col-sm-6">
             <div className="card-box bg-blue">

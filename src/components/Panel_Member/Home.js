@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
     
-      <div className="container">
+      <div className="container" style={{width: '1200px'}}>
    <div className="row">
       <div className="col-md-12">
          <div id="content" className="content content-full-width">

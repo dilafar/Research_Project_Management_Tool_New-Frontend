@@ -107,7 +107,7 @@ import {
           
           
           <ListItem disablePadding>
-            <ListItemButton >
+            <ListItemButton component={Link} to="/Student/join">
               <ListItemIcon>
                 <AccountBox />
               </ListItemIcon>

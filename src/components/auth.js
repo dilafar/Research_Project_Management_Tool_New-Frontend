@@ -48,9 +48,25 @@ const Auth = () => {
           e.preventDefault();
           if(isSignup){
             if(staff){
-                    dispatch(staffsignup({ firstname , lastname ,gender ,dob,type, email , password , confirmpassword,address,contactnumber,staffID,faculty,image,educationQualification,researchSpeacializedArea,pastresearchexperiance} , navigation));
+              if(password !== confirmpassword){
+                alert("Password Miss Match");
+          
+              }else if(Phone.length > 10){
+                alert("Invalied Phone Number.....(Phone Number Must Contains 10 numbers)");
+              }else{
+                dispatch(staffsignup({ firstname , lastname ,gender ,dob,type, email , password , confirmpassword,address,contactnumber,staffID,faculty,image,educationQualification,researchSpeacializedArea,pastresearchexperiance} , navigation));
+              }
+                   
             }else{
+              if(password !== confirmpassword){
+                     alert("Password Miss Match");
+          
+              }else if(Phone.length > 10){
+                     alert("Invalied Phone Number.....(Phone Number Must Contains 10 numbers)");
+              }else{
                     dispatch(signup({ firstname ,lastname ,gender,dob  , email ,password , confirmpassword , address , contactnumber , studentID , faculty ,image} , navigation));
+              }
+                   
             }
                  
           }else{
@@ -123,10 +139,11 @@ const Auth = () => {
     <Input
       id="fname"
       name="firstname"
-      placeholder="with a placeholder"
+      placeholder="Enter firstname"
       type="text"
       value={firstname}  onChange={(e)=> setfirstname(e.target.value)}
       style={{width: "330px"}}
+      required
     />
   </FormGroup>
   <FormGroup>
@@ -140,14 +157,15 @@ const Auth = () => {
       type="text"
       value={lastname}  onChange={(e)=> setlastname(e.target.value)}
       style={{width: "330px"}}
+      required
     />
   </FormGroup>
   </Stack>
 
   <FormGroup tag="fieldset">
-    <legend>
-      Gender
-    </legend>
+  <Label for="gender">
+     Gender
+    </Label>
     <FormGroup check>
       <Input
         name="gender"
@@ -186,6 +204,7 @@ const Auth = () => {
       placeholder="date placeholder"
       type="date"
       value={dob}  onChange={(e)=> setdob(e.target.value)}
+      required
     />
   </FormGroup>
 
@@ -198,6 +217,7 @@ const Auth = () => {
       name="faculty"
       type="select"
       onChange={(e)=> setfaculty(e.target.value)}
+      required
     >
         <option value = "Computing">
         Select Faculty
@@ -230,14 +250,15 @@ const Auth = () => {
       placeholder="number placeholder"
       type="text"
       value={contactnumber}  onChange={(e)=> setcontactnumber(e.target.value)}
+      required
     />
   </FormGroup>
 {  staff && (
   <>
   <FormGroup tag="fieldset">
-    <legend>
-      Type
-    </legend>
+  <Label for="type">
+     Type
+    </Label>
     <FormGroup check>
       <Input
         name="type"
@@ -245,6 +266,7 @@ const Auth = () => {
         value = "Suppervisor"
         checked = {type === 'Suppervisor'}
         onChange={()=> settype("Suppervisor")}
+        
       />
       {' '}
       <Label check>
@@ -289,6 +311,7 @@ const Auth = () => {
       name="address"
       type="textarea"
       value={address}  onChange={(e)=> setaddress(e.target.value)}
+      required
     />
   </FormGroup>
 
@@ -305,6 +328,7 @@ const Auth = () => {
       type="email"
       value={email}  onChange={(e)=> setemail(e.target.value)}
       style={{width : !isSignup ? "700px":" " }}
+      required
     />
   </FormGroup>
   <FormGroup>
@@ -317,6 +341,7 @@ const Auth = () => {
       placeholder="password placeholder"
       type="password"
       value={password}  onChange={(e)=> setpassword(e.target.value)}
+      required
     />
   </FormGroup>
   { isSignup  && (
@@ -332,6 +357,7 @@ const Auth = () => {
       placeholder="password placeholder"
       type="password"
       value={confirmpassword}  onChange={(e)=> setconfirmpassword(e.target.value)}
+      required
     />
   </FormGroup>
   {  student && (
@@ -347,6 +373,7 @@ const Auth = () => {
       placeholder="with a placeholder"
       type="text"
       value={studentID}  onChange={(e)=> setstudentID(e.target.value)}
+      required
      
     />
   </FormGroup>
@@ -369,7 +396,7 @@ const Auth = () => {
       placeholder="with a placeholder"
       type="text"
       value={staffID}  onChange={(e)=> setstaffID(e.target.value)}
-     
+      required
     />
   </FormGroup>
   <FormGroup>
@@ -381,6 +408,7 @@ const Auth = () => {
       name="educationQualification"
       type="textarea"
       value={educationQualification}  onChange={(e)=> seteducationQualification(e.target.value)}
+      required
     />
   </FormGroup>
 
@@ -394,6 +422,7 @@ const Auth = () => {
       name="researchSpeacializedArea"
       type="textarea"
       value={researchSpeacializedArea}  onChange={(e)=> setresearchSpeacializedArea(e.target.value)}
+      required
     />
   </FormGroup>
 
@@ -406,6 +435,7 @@ const Auth = () => {
       name="pastresearchexperiance"
       type="textarea"
       value={pastresearchexperiance}  onChange={(e)=> setpastresearchexperiance(e.target.value)}
+      required
     />
   </FormGroup>
   </> 
